@@ -12,15 +12,15 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
 
-public class BaseUserTest {
+public class BaseTestSpooner {
     private static Properties environment;
     private ApplicationConfig cfg = ConfigFactory.create(ApplicationConfig.class);
 
 
     @BeforeSuite(description = "Configure URI")
     public void SetUpSuite(){
-        RestAssured.baseURI = cfg.host();
-        RestAssured.basePath = cfg.baseUser();
+        RestAssured.baseURI = cfg.hostSpooner();
+        //RestAssured.basePath = cfg.baseSpooner2();
         RestAssured.defaultParser = Parser.JSON;
         RestAssured.filters(new AllureRestAssured());
     }
